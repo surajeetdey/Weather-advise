@@ -11,44 +11,47 @@
     <dmn:informationRequirement id="_6B5720B7-3AF5-47D8-A156-B648C2EBB34A">
       <dmn:requiredInput href="#_E876AB15-A677-47CB-8D17-AA18D56D10AD"/>
     </dmn:informationRequirement>
+    <dmn:informationRequirement id="_DCFEB70C-A1EE-40C9-861D-F461DC126729">
+      <dmn:requiredDecision href="#_9D1D488F-7360-4757-BB6B-DB170D946961"/>
+    </dmn:informationRequirement>
     <dmn:literalExpression id="_60AC6BFB-53F9-4509-883B-4DCFE83D071D">
-      <dmn:text>if Name="" then "Sorry invalid input, please enter name" else "Welcome "+Name+"  It worked"</dmn:text>
+      <dmn:text>if Name="" then "Sorry invalid input, please enter name" else "Welcome "+Name+"  It worked and today's weather is " + Weather-Advise</dmn:text>
     </dmn:literalExpression>
   </dmn:decision>
   <dmn:inputData id="_96DEC7CC-4F61-4CFA-AA85-2CBE19C0C27D" name="Rain-Forecast">
     <dmn:extensionElements/>
     <dmn:variable id="_B3C7CDDE-6FBB-475A-A99F-71CF538B5CD8" name="Rain-Forecast" typeRef="number"/>
   </dmn:inputData>
-  <dmn:decision id="_CFC5B42E-6CB3-444F-BA09-0029F8F0C401" name="Weather Forecast">
+  <dmn:decision id="_9D1D488F-7360-4757-BB6B-DB170D946961" name="Weather-Advise">
     <dmn:extensionElements/>
-    <dmn:variable id="_BD2B6501-07DC-473E-8CB0-774FACDA8B93" name="Weather Forecast"/>
-    <dmn:informationRequirement id="_1375F2CB-0345-4AB4-B91C-75162ECC658A">
+    <dmn:variable id="_70C4A67A-4FAD-42A5-85D6-E9F3B7BDDB62" name="Weather-Advise" typeRef="string"/>
+    <dmn:informationRequirement id="_902148D6-36CB-4097-9E77-BC91E8675158">
       <dmn:requiredInput href="#_96DEC7CC-4F61-4CFA-AA85-2CBE19C0C27D"/>
     </dmn:informationRequirement>
-    <dmn:decisionTable id="_C81974EC-CA90-43D1-A9FB-2A60E20A1840" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
-      <dmn:input id="_749A84E7-36F9-47A5-8FC4-2A8B3F4CF4D9">
-        <dmn:inputExpression id="_3AD9CF88-CB75-43F1-823D-CDDED49AF62E" typeRef="number">
+    <dmn:decisionTable id="_0468DD7A-8F90-4D3D-B549-EE994DC8CDB3" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
+      <dmn:input id="_E448E4F7-929F-4D74-9A6D-5516E9057A8C">
+        <dmn:inputExpression id="_5EC96257-702F-4E50-8C30-A126ACA8CD7C" typeRef="number">
           <dmn:text>Rain-Forecast</dmn:text>
         </dmn:inputExpression>
       </dmn:input>
-      <dmn:output id="_F799DEA8-850D-4D67-B996-A482DA7CBC9B"/>
+      <dmn:output id="_178FCA2D-9B0D-4439-9AFF-CE63CB5EC846"/>
       <dmn:annotation name="annotation-1"/>
-      <dmn:rule id="_16A0A362-12F6-4ABC-B142-93CFF2CCB064">
-        <dmn:inputEntry id="_78C29283-A9AE-4854-A52D-597EB28765FC">
-          <dmn:text>(0..20)</dmn:text>
+      <dmn:rule id="_D527A624-CED0-40A3-B363-CED860873DF9">
+        <dmn:inputEntry id="_019CBDEC-A109-47B4-A6B2-6E3CDDD87905">
+          <dmn:text>(0..40)</dmn:text>
         </dmn:inputEntry>
-        <dmn:outputEntry id="_2F64BFE3-3FDC-4D3F-8838-032932C659E1">
-          <dmn:text>"Nice Sunny day"</dmn:text>
+        <dmn:outputEntry id="_C451F817-946E-4AA5-B258-C4A9E9240AAC">
+          <dmn:text>"Nice Sunny"</dmn:text>
         </dmn:outputEntry>
         <dmn:annotationEntry>
           <dmn:text/>
         </dmn:annotationEntry>
       </dmn:rule>
-      <dmn:rule id="_BE35510A-1979-4160-AF97-6AF512167B01">
-        <dmn:inputEntry id="_B54A42D0-E56F-4A7F-BF87-D6551D7EAF60">
-          <dmn:text>(20..80)</dmn:text>
+      <dmn:rule id="_1A5B1024-C31D-446B-A0C7-C96BA8301361">
+        <dmn:inputEntry id="_B0F1B524-7EEC-407A-8405-95F68EC7E818">
+          <dmn:text>(41..100)</dmn:text>
         </dmn:inputEntry>
-        <dmn:outputEntry id="_38532CAD-04C9-4560-9834-4F2A0D7C4C17">
+        <dmn:outputEntry id="_63E97F30-A4AE-43F7-8FF7-6914A010DDD1">
           <dmn:text>"May Rain"</dmn:text>
         </dmn:outputEntry>
         <dmn:annotationEntry>
@@ -62,9 +65,9 @@
       <di:extension>
         <kie:ComponentsWidthsExtension>
           <kie:ComponentWidths dmnElementRef="_60AC6BFB-53F9-4509-883B-4DCFE83D071D">
-            <kie:width>962</kie:width>
+            <kie:width>1208</kie:width>
           </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_C81974EC-CA90-43D1-A9FB-2A60E20A1840">
+          <kie:ComponentWidths dmnElementRef="_0468DD7A-8F90-4D3D-B549-EE994DC8CDB3">
             <kie:width>50</kie:width>
             <kie:width>100</kie:width>
             <kie:width>100</kie:width>
@@ -99,22 +102,26 @@
         <dc:Bounds x="175" y="409" width="100" height="50"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
-      <dmndi:DMNShape id="dmnshape-drg-_CFC5B42E-6CB3-444F-BA09-0029F8F0C401" dmnElementRef="_CFC5B42E-6CB3-444F-BA09-0029F8F0C401" isCollapsed="false">
+      <dmndi:DMNShape id="dmnshape-drg-_9D1D488F-7360-4757-BB6B-DB170D946961" dmnElementRef="_9D1D488F-7360-4757-BB6B-DB170D946961" isCollapsed="false">
         <dmndi:DMNStyle>
           <dmndi:FillColor red="255" green="255" blue="255"/>
           <dmndi:StrokeColor red="0" green="0" blue="0"/>
           <dmndi:FontColor red="0" green="0" blue="0"/>
         </dmndi:DMNStyle>
-        <dc:Bounds x="175" y="279" width="100" height="50"/>
+        <dc:Bounds x="195" y="306" width="100" height="50"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="dmnedge-drg-_6B5720B7-3AF5-47D8-A156-B648C2EBB34A-AUTO-SOURCE-AUTO-TARGET" dmnElementRef="_6B5720B7-3AF5-47D8-A156-B648C2EBB34A">
         <di:waypoint x="512" y="265"/>
         <di:waypoint x="512" y="185"/>
       </dmndi:DMNEdge>
-      <dmndi:DMNEdge id="dmnedge-drg-_1375F2CB-0345-4AB4-B91C-75162ECC658A-AUTO-SOURCE-AUTO-TARGET" dmnElementRef="_1375F2CB-0345-4AB4-B91C-75162ECC658A">
-        <di:waypoint x="225" y="409"/>
-        <di:waypoint x="225" y="329"/>
+      <dmndi:DMNEdge id="dmnedge-drg-_DCFEB70C-A1EE-40C9-861D-F461DC126729" dmnElementRef="_DCFEB70C-A1EE-40C9-861D-F461DC126729">
+        <di:waypoint x="245" y="331"/>
+        <di:waypoint x="462" y="160"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_902148D6-36CB-4097-9E77-BC91E8675158-AUTO-TARGET" dmnElementRef="_902148D6-36CB-4097-9E77-BC91E8675158">
+        <di:waypoint x="225" y="434"/>
+        <di:waypoint x="245" y="306"/>
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
