@@ -7,7 +7,7 @@
       <dmn:text>"cold", "hot", "warm"</dmn:text>
     </dmn:allowedValues>
   </dmn:itemDefinition>
-  <dmn:itemDefinition id="_CE817556-0959-490B-AFDF-9CF9642DB6FB" name="weather" isCollection="true">
+  <dmn:itemDefinition id="_CE817556-0959-490B-AFDF-9CF9642DB6FB" name="weather" isCollection="false">
     <dmn:itemComponent id="_46FFA427-6688-4235-ABF8-40ABF78BC2E8" name="temperature" isCollection="false">
       <dmn:typeRef>temperature</dmn:typeRef>
     </dmn:itemComponent>
@@ -29,16 +29,16 @@
       <dmn:requiredDecision href="#_B6461411-9757-47C2-A97A-9C3BA41D852C"/>
     </dmn:informationRequirement>
     <dmn:literalExpression id="_60AC6BFB-53F9-4509-883B-4DCFE83D071D">
-      <dmn:text>if Name="" then "Sorry invalid input, please enter name" else "Welcome "+Name+"  It worked and today's weather is " + Advise</dmn:text>
+      <dmn:text>if Name="" then "Sorry invalid input, please enter name" else "Welcome "+Name+" !! Weather Advisory: " + Weather-Advise</dmn:text>
     </dmn:literalExpression>
   </dmn:decision>
   <dmn:inputData id="_73388F45-6842-4E71-950E-D92F72F0581F" name="Weather">
     <dmn:extensionElements/>
     <dmn:variable id="_803A4D5C-8F02-4B0F-9A87-DEA0773FD8C9" name="Weather" typeRef="weather"/>
   </dmn:inputData>
-  <dmn:decision id="_B6461411-9757-47C2-A97A-9C3BA41D852C" name="Advise">
+  <dmn:decision id="_B6461411-9757-47C2-A97A-9C3BA41D852C" name="Weather-Advise">
     <dmn:extensionElements/>
-    <dmn:variable id="_55C01340-E7E0-48B0-AE85-F8243B3B6956" name="Advise" typeRef="string"/>
+    <dmn:variable id="_55C01340-E7E0-48B0-AE85-F8243B3B6956" name="Weather-Advise" typeRef="string"/>
     <dmn:informationRequirement id="_BF4F03B5-989D-4C88-ADAF-0C03115CC407">
       <dmn:requiredInput href="#_73388F45-6842-4E71-950E-D92F72F0581F"/>
     </dmn:informationRequirement>
@@ -55,15 +55,43 @@
       </dmn:input>
       <dmn:output id="_D56E0B10-86DB-430C-AD66-55A0958F78EC"/>
       <dmn:annotation name="annotation-1"/>
-      <dmn:rule id="_FB9D3788-5C7F-4FFD-AEA1-D13E6BB80D08">
-        <dmn:inputEntry id="_88755D1A-1C48-456D-880F-B5A3045045DD">
+      <dmn:rule id="_C4399383-6CB1-4E5B-9FF5-0D20D12CD5B1">
+        <dmn:inputEntry id="_D4E1CDF4-D1BC-4424-8F59-E4BB67641CF0">
           <dmn:text>(0..20)</dmn:text>
         </dmn:inputEntry>
-        <dmn:inputEntry id="_C3DA64D7-D4D6-470B-86BC-1E0EFB365113">
+        <dmn:inputEntry id="_65E9EA76-0E78-40C8-8DB6-2AFFDC5FE5D8">
           <dmn:text>"cold"</dmn:text>
         </dmn:inputEntry>
+        <dmn:outputEntry id="_F377E975-224D-4EDF-A866-DB413746845E">
+          <dmn:text>"Its cold there, please take a Jacket its cold out there"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_59CBAD4E-1E69-4756-9E5F-78183F3B4F2C">
+        <dmn:inputEntry id="_082C543B-2DE4-4E83-9C9D-4CE2B51A0E7B">
+          <dmn:text>(21..40)</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_A3839252-4DBE-4EAF-A265-C0C11A3171EC">
+          <dmn:text>"warm"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_22C7B6E4-FD47-418D-99C1-56D9DB5F027C">
+          <dmn:text>"Its warm there, Enjoy the weather"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_FB9D3788-5C7F-4FFD-AEA1-D13E6BB80D08">
+        <dmn:inputEntry id="_88755D1A-1C48-456D-880F-B5A3045045DD">
+          <dmn:text>(41..100)</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_C3DA64D7-D4D6-470B-86BC-1E0EFB365113">
+          <dmn:text>"hot"</dmn:text>
+        </dmn:inputEntry>
         <dmn:outputEntry id="_B7EBCB32-2F17-4FB9-A144-6EC89C694886">
-          <dmn:text>"Take Jacket its cold out there"</dmn:text>
+          <dmn:text>"Its hot there, Stay cool"</dmn:text>
         </dmn:outputEntry>
         <dmn:annotationEntry>
           <dmn:text/>
@@ -82,7 +110,7 @@
             <kie:width>50</kie:width>
             <kie:width>100</kie:width>
             <kie:width>100</kie:width>
-            <kie:width>100</kie:width>
+            <kie:width>361</kie:width>
             <kie:width>100</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
