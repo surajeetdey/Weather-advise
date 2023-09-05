@@ -42,7 +42,7 @@
     <dmn:informationRequirement id="_BF4F03B5-989D-4C88-ADAF-0C03115CC407">
       <dmn:requiredInput href="#_73388F45-6842-4E71-950E-D92F72F0581F"/>
     </dmn:informationRequirement>
-    <dmn:decisionTable id="_1250647E-6DC3-43AC-8428-196A6186ADE8" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
+    <dmn:decisionTable id="_1250647E-6DC3-43AC-8428-196A6186ADE8" hitPolicy="FIRST" preferredOrientation="Rule-as-Row">
       <dmn:input id="_4571F3D0-8487-42FC-8561-178F852D606D">
         <dmn:inputExpression id="_93BEBF15-7A3C-497D-85B9-3E7FE02F1AF8" typeRef="number">
           <dmn:text>Weather.rainForest</dmn:text>
@@ -51,6 +51,11 @@
       <dmn:input id="_6E90E8D4-DCF4-46DC-93AE-7E94A800BEB1">
         <dmn:inputExpression id="_567CE25B-68AA-4A00-A214-08B7B5ED3AA0" typeRef="temperature">
           <dmn:text>Weather.temperature</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:input id="_5D2C640C-A48A-4745-B9BD-5D9EE58A14E1">
+        <dmn:inputExpression id="_EF0E51C5-FFC9-4BD8-8E7A-61E4540288F1" typeRef="boolean">
+          <dmn:text>Weather.stormAlert</dmn:text>
         </dmn:inputExpression>
       </dmn:input>
       <dmn:output id="_D56E0B10-86DB-430C-AD66-55A0958F78EC"/>
@@ -62,8 +67,11 @@
         <dmn:inputEntry id="_65E9EA76-0E78-40C8-8DB6-2AFFDC5FE5D8">
           <dmn:text>"cold"</dmn:text>
         </dmn:inputEntry>
+        <dmn:inputEntry id="_86F0DBC5-1A28-45AD-BDD0-5E21D6A3C295">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
         <dmn:outputEntry id="_F377E975-224D-4EDF-A866-DB413746845E">
-          <dmn:text>"Its cold there, please take a Jacket its cold out there"</dmn:text>
+          <dmn:text>"Please take a Jacket its cold out there"</dmn:text>
         </dmn:outputEntry>
         <dmn:annotationEntry>
           <dmn:text/>
@@ -75,6 +83,9 @@
         </dmn:inputEntry>
         <dmn:inputEntry id="_A3839252-4DBE-4EAF-A265-C0C11A3171EC">
           <dmn:text>"warm"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_B445EE36-6582-4A3C-B9F8-B0BAF8B37CF9">
+          <dmn:text>-</dmn:text>
         </dmn:inputEntry>
         <dmn:outputEntry id="_22C7B6E4-FD47-418D-99C1-56D9DB5F027C">
           <dmn:text>"Its warm there, Enjoy the weather"</dmn:text>
@@ -89,6 +100,9 @@
         </dmn:inputEntry>
         <dmn:inputEntry id="_C3DA64D7-D4D6-470B-86BC-1E0EFB365113">
           <dmn:text>"hot"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_FD53330E-3A09-40C8-A080-34740FB436C6">
+          <dmn:text>-</dmn:text>
         </dmn:inputEntry>
         <dmn:outputEntry id="_B7EBCB32-2F17-4FB9-A144-6EC89C694886">
           <dmn:text>"Its hot there, Stay cool"</dmn:text>
@@ -108,6 +122,7 @@
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_1250647E-6DC3-43AC-8428-196A6186ADE8">
             <kie:width>50</kie:width>
+            <kie:width>100</kie:width>
             <kie:width>100</kie:width>
             <kie:width>100</kie:width>
             <kie:width>361</kie:width>
